@@ -18,7 +18,7 @@ const DAYS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 
 // ── State ─────────────────────────────────────
 let langCache = {};
-let API_KEY   = localStorage.getItem('owm_key')      || '808596ff3f56bbba8683587bb4a86868';
+let API_KEY = null;
 let CUR_LANG  = localStorage.getItem('skycast_lang') || 'en';
 let CUR_CITY  = '';
 let lastLat   = null;
@@ -138,18 +138,7 @@ function saveApiKey() {
   localStorage.setItem('owm_key', val);
   document.getElementById('apiNotice').classList.add('hidden');
 }
-fetch(`/api/weather?city=${city}`)
-  .then(res => res.json())
-  .then(data => {
 
-    if (data.error) {
-      alert(data.error);
-      return;
-    }
-
-    console.log(data);
-
-  });
 // ── UI state ──────────────────────────────────
 function setState(name) {
   ['Idle','Loading','Error','Result'].forEach(s => {
@@ -170,12 +159,6 @@ async function fetchWeather() {
   CUR_CITY = city;
   setState('loading');
   try {
-    const base   = 'https://api.openweathermap.org/data/2.5';
-    const params = `q=${encodeURIComponent(city)}&appid=${API_KEY}&units=metric&lang=${CUR_LANG}`;
-    const [curRes, foreRes] = await Promise.all([
-      fetch(`${base}/weather?${params}`),
-      fetch(`${base}/forecast?${params}`),
-    ]);
     if (!curRes.ok) {
       if (curRes.status === 401) throw new Error('Invalid API key.');
       if (curRes.status === 404) throw new Error(`City "${city}" not found.`);
