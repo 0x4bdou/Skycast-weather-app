@@ -138,7 +138,18 @@ function saveApiKey() {
   localStorage.setItem('owm_key', val);
   document.getElementById('apiNotice').classList.add('hidden');
 }
+fetch(`/api/weather?city=${city}`)
+  .then(res => res.json())
+  .then(data => {
 
+    if (data.error) {
+      alert(data.error);
+      return;
+    }
+
+    console.log(data);
+
+  });
 // ── UI state ──────────────────────────────────
 function setState(name) {
   ['Idle','Loading','Error','Result'].forEach(s => {
