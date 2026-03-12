@@ -4,7 +4,9 @@ export default async function handler(req, res) {
   const city = req.query.city;
 
   if (!city) {
-    return res.status(400).json({ error: "City parameter is required" });
+    return res.status(400).json({
+      error: "City parameter is required"
+    });
   }
 
   try {
@@ -20,19 +22,9 @@ export default async function handler(req, res) {
     const weatherData = await weatherRes.json();
     const forecastData = await forecastRes.json();
 
-    const lat = weatherData.coord.lat;
-    const lon = weatherData.coord.lon;
-
-    const airRes = await fetch(
-      `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${API_KEY}`
-    );
-
-    const airData = await airRes.json();
-
     res.status(200).json({
       weatherData,
-      forecast: forecastData,
-      air: airData
+      forecast: forecastData
     });
 
   } catch (error) {
