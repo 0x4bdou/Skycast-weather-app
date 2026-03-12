@@ -1,0 +1,17 @@
+{
+  "search": "検索",
+  "placeholder": "都市を検索 — 東京、パリ、カイロ…",
+  "idle": "都市名を入力してリアルタイムの天気を確認してください。",
+  "humidity": "湿度",
+  "wind": "風速",
+  "visibility": "視程",
+  "forecast": "5日間の天気予報",
+  "feels": "体感温度",
+  "loading": "読み込み中…",
+  "tagline": "リアルタイム気象情報",
+  "footer": "❤️ で作成",
+  "sunTitle": "日の出と日の入り",
+  "sunrise": "日の出",
+  "sunset": "日の入り",
+  "airQuality": "大気質"
+}

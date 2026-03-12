@@ -1,0 +1,17 @@
+{
+  "search": "搜索",
+  "placeholder": "搜索城市 — 东京、巴黎、开罗…",
+  "idle": "输入城市名称以获取实时天气数据。",
+  "humidity": "湿度",
+  "wind": "风速",
+  "visibility": "能见度",
+  "forecast": "5天天气预报",
+  "feels": "体感",
+  "loading": "加载中…",
+  "tagline": "实时天气资讯",
+  "footer": "用 ❤️ 构建",
+  "sunTitle": "日出与日落",
+  "sunrise": "日出",
+  "sunset": "日落",
+  "airQuality": "空气质量"
+}

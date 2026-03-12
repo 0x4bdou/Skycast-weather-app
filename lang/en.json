@@ -1,0 +1,17 @@
+{
+  "search": "Search",
+  "placeholder": "Search any city — Tokyo, Paris, Cairo…",
+  "idle": "Enter a city name above to get real-time weather data.",
+  "humidity": "Humidity",
+  "wind": "Wind",
+  "visibility": "Visibility",
+  "forecast": "5 — Day Forecast",
+  "feels": "Feels like",
+  "loading": "Fetching weather…",
+  "tagline": "Real-time weather intelligence",
+  "footer": "Built with ❤️",
+  "sunTitle": "Sunrise & Sunset",
+  "sunrise": "Sunrise",
+  "sunset": "Sunset",
+  "airQuality": "Air Quality"
+}

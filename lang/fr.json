@@ -1,0 +1,17 @@
+{
+  "search": "Rechercher",
+  "placeholder": "Rechercher une ville — Tokyo, Paris, Le Caire…",
+  "idle": "Entrez une ville pour voir la météo en temps réel.",
+  "humidity": "Humidité",
+  "wind": "Vent",
+  "visibility": "Visibilité",
+  "forecast": "Prévisions — 5 jours",
+  "feels": "Ressenti",
+  "loading": "Chargement…",
+  "tagline": "Météo en temps réel",
+  "footer": "Fait avec ❤️",
+  "sunTitle": "Lever & Coucher",
+  "sunrise": "Lever",
+  "sunset": "Coucher",
+  "airQuality": "Qualité de l'air"
+}

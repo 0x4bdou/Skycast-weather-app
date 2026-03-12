@@ -1,0 +1,17 @@
+{
+  "search": "Buscar",
+  "placeholder": "Busca una ciudad — Tokio, París, El Cairo…",
+  "idle": "Escribe una ciudad para ver el clima en tiempo real.",
+  "humidity": "Humedad",
+  "wind": "Viento",
+  "visibility": "Visibilidad",
+  "forecast": "Pronóstico — 5 días",
+  "feels": "Sensación",
+  "loading": "Cargando…",
+  "tagline": "Clima en tiempo real",
+  "footer": "Hecho con ❤️",
+  "sunTitle": "Amanecer y Atardecer",
+  "sunrise": "Amanecer",
+  "sunset": "Atardecer",
+  "airQuality": "Calidad del Aire"
+}

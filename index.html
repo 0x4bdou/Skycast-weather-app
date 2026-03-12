@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SKYCAST — Weather</title>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;900&family=Montserrat:wght@100;200;300&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+  <!-- Animated weather canvas -->
+  <canvas id="weatherCanvas"></canvas>
+
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+
+  <div class="wrapper">
+
+    <header>
+      <div class="logo-row">
+        <div class="logo-icon">🌤</div>
+        <div class="logo-text">
+          <div class="logo">Skycast</div>
+          <div class="logo-tagline" id="logoTagline">Real-time weather intelligence</div>
+        </div>
+
+        <!-- Live clock -->
+        <div class="live-clock" id="liveClock">--:--</div>
+
+        <!-- Language button -->
+        <button class="lang-btn" id="langBtn">
+          <img src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KDTwhLS0gVXBsb2FkZWQgdG86IFNWRyBSZXBvLCB3d3cuc3ZncmVwby5jb20sIFRyYW5zZm9ybWVkIGJ5OiBTVkcgUmVwbyBNaXhlciBUb29scyAtLT4KPHN2ZyB3aWR0aD0iODAwcHgiIGhlaWdodD0iODAwcHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9IiMwMDAwMDAiPgoNPGcgaWQ9IlNWR1JlcG9fYmdDYXJyaWVyIiBzdHJva2Utd2lkdGg9IjAiLz4KDTxnIGlkPSJTVkdSZXBvX3RyYWNlckNhcnJpZXIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgoNPGcgaWQ9IlNWR1JlcG9faWNvbkNhcnJpZXIiPgoNPHRpdGxlPmlvbmljb25zLXY1LWw8L3RpdGxlPgoNPGxpbmUgeDE9IjQ4IiB5MT0iMTEyIiB4Mj0iMzM2IiB5Mj0iMTEyIiBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTojN2UxZGZiO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2Utd2lkdGg6MzJweCIvPgoNPGxpbmUgeDE9IjE5MiIgeTE9IjY0IiB4Mj0iMTkyIiB5Mj0iMTEyIiBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTojN2UxZGZiO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2Utd2lkdGg6MzJweCIvPgoNPHBvbHlsaW5lIHBvaW50cz0iMjcyIDQ0OCAzNjggMjI0IDQ2NCA0NDgiIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOiM3ZTFkZmI7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS13aWR0aDozMnB4Ii8+Cg08bGluZSB4MT0iMzAxLjUiIHkxPSIzODQiIHgyPSI0MzQuNSIgeTI9IjM4NCIgc3R5bGU9ImZpbGw6bm9uZTtzdHJva2U6IzdlMWRmYjtzdHJva2UtbGluZWNhcDpyb3VuZDtzdHJva2UtbGluZWpvaW46cm91bmQ7c3Ryb2tlLXdpZHRoOjMycHgiLz4KDTxwYXRoIGQ9Ik0yODEuMywxMTJTMjU3LDIwNiwxOTksMjc3LDgwLDM4NCw4MCwzODQiIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOiM3ZTFkZmI7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS13aWR0aDozMnB4Ii8+Cg08cGF0aCBkPSJNMjU2LDMzNnMtMzUtMjctNzItNzUtNTYtODUtNTYtODUiIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOiM3ZTFkZmI7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS13aWR0aDozMnB4Ii8+Cg08L2c+Cg08L3N2Zz4=" class="lang-img" alt="language"/>
+          <span id="langLabel">EN</span>
+        </button>
+
+        <!-- Theme toggle -->
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme">
+          <img id="toggleIcon" class="toggle-img" src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KCjwhLS0gVXBsb2FkZWQgdG86IFNWRyBSZXBvLCB3d3cuc3ZncmVwby5jb20sIFRyYW5zZm9ybWVkIGJ5OiBTVkcgUmVwbyBNaXhlciBUb29scyAtLT4KPHN2ZyB3aWR0aD0iODAwcHgiIGhlaWdodD0iODAwcHgiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCjxnIGlkPSJTVkdSZXBvX2JnQ2FycmllciIgc3Ryb2tlLXdpZHRoPSIwIi8+Cgo8ZyBpZD0iU1ZHUmVwb190cmFjZXJDYXJyaWVyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KCjxnIGlkPSJTVkdSZXBvX2ljb25DYXJyaWVyIj4gPHBhdGggZD0ibSA3LjUgMCBjIC0wLjI3NzM0NCAwIC0wLjUgMC4yMjI2NTYgLTAuNSAwLjUgdiAyIGMgMCAwLjI3NzM0NCAwLjIyMjY1NiAwLjUgMC41IDAuNSBoIDEgYyAwLjI3NzM0NCAwIDAuNSAtMC4yMjI2NTYgMC41IC0wLjUgdiAtMiBjIDAgLTAuMjc3MzQ0IC0wLjIyMjY1NiAtMC41IC0wLjUgLTAuNSB6IG0gLTQuNDQ5MjE5IDEuODQzNzUgYyAtMC4xMjg5MDYgMCAtMC4yNTM5MDYgMC4wNDY4NzUgLTAuMzUxNTYyIDAuMTQ0NTMxIGwgLTAuNzEwOTM4IDAuNzEwOTM4IGMgLTAuMTk1MzEyIDAuMTk1MzEyIC0wLjE5NTMxMiAwLjUwNzgxMiAwIDAuNzA3MDMxIGwgMS40MTc5NjkgMS40MTQwNjIgYyAwLjE5NTMxMiAwLjE5NTMxMyAwLjUwNzgxMiAwLjE5NTMxMyAwLjcwNzAzMSAwIGwgMC43MDcwMzEgLTAuNzA3MDMxIGMgMC4xOTUzMTMgLTAuMTk5MjE5IDAuMTk1MzEzIC0wLjUxMTcxOSAwIC0wLjcwNzAzMSBsIC0xLjQxNDA2MiAtMS40MTc5NjkgYyAtMC4xMDE1NjIgLTAuMDk3NjU2IC0wLjIyNjU2MiAtMC4xNDQ1MzEgLTAuMzU1NDY5IC0wLjE0NDUzMSB6IG0gOS44OTg0MzggMCBjIC0wLjEyODkwNyAwIC0wLjI1MzkwNyAwLjA0Njg3NSAtMC4zNTU0NjkgMC4xNDQ1MzEgbCAtMS40MTQwNjIgMS40MTc5NjkgYyAtMC4xOTUzMTMgMC4xOTUzMTIgLTAuMTk1MzEzIDAuNTA3ODEyIDAgMC43MDcwMzEgbCAwLjcwNzAzMSAwLjcwNzAzMSBjIDAuMTk5MjE5IDAuMTk1MzEzIDAuNTExNzE5IDAuMTk1MzEzIDAuNzA3MDMxIDAgbCAxLjQxNzk2OSAtMS40MTQwNjIgYyAwLjE5NTMxMiAtMC4xOTkyMTkgMC4xOTUzMTIgLTAuNTExNzE5IDAgLTAuNzA3MDMxIGwgLTAuNzEwOTM4IC0wLjcxMDkzOCBjIC0wLjA5NzY1NiAtMC4wOTc2NTYgLTAuMjIyNjU2IC0wLjE0NDUzMSAtMC4zNTE1NjIgLTAuMTQ0NTMxIHogbSAtNC45NDkyMTkgMi4xNjQwNjIgYyAtMi4xOTUzMTIgMCAtNCAxLjgwNDY4OCAtNCA0IGMgMCAyLjE5MTQwNyAxLjgwNDY4OCA0IDQgNCBzIDQgLTEuODA4NTkzIDQgLTQgYyAwIC0yLjE5NTMxMiAtMS44MDQ2ODggLTQgLTQgLTQgeiBtIC03LjUgMi45OTIxODggYyAtMC4yNzczNDQgMCAtMC41IDAuMjIyNjU2IC0wLjUgMC41IHYgMSBjIDAgMC4yNzczNDQgMC4yMjI2NTYgMC41IDAuNSAwLjUgaCAyIGMgMC4yNzczNDQgMCAwLjUgLTAuMjIyNjU2IDAuNSAtMC41IHYgLTEgYyAwIC0wLjI3NzM0NCAtMC4yMjI2NTYgLTAuNSAtMC41IC0wLjUgeiBtIDEzIDAgYyAtMC4yNzczNDQgMCAtMC41IDAuMjIyNjU2IC0wLjUgMC41IHYgMSBjIDAgMC4yNzczNDQgMC4yMjI2NTYgMC41IDAuNSAwLjUgaCAyIGMgMC4yNzczNDQgMCAwLjUgLTAuMjIyNjU2IDAuNSAtMC41IHYgLTEgYyAwIC0wLjI3NzM0NCAtMC4yMjI2NTYgLTAuNSAtMC41IC0wLjUgeiBtIC05Ljc0MjE4OCA0LjAzNTE1NiBjIC0wLjEyODkwNiAwIC0wLjI1MzkwNiAwLjA0Njg3NSAtMC4zNTE1NjIgMC4xNDQ1MzIgbCAtMS40MTc5NjkgMS40MTQwNjIgYyAtMC4xOTUzMTIgMC4xOTkyMTkgLTAuMTk1MzEyIDAuNTExNzE5IDAgMC43MDcwMzEgbCAwLjcxMDkzOCAwLjcxMDkzOCBjIDAuMTk1MzEyIDAuMTk1MzEyIDAuNTA3ODEyIDAuMTk1MzEyIDAuNzA3MDMxIDAgbCAxLjQxNDA2MiAtMS40MTc5NjkgYyAwLjE5NTMxMyAtMC4xOTUzMTIgMC4xOTUzMTMgLTAuNTA3ODEyIDAgLTAuNzA3MDMxIGwgLTAuNzA3MDMxIC0wLjcwNzAzMSBjIC0wLjEwMTU2MiAtMC4wOTc2NTcgLTAuMjI2NTYyIC0wLjE0NDUzMiAtMC4zNTU0NjkgLTAuMTQ0NTMyIHogbSA4LjQ4NDM3NiAwIGMgLTAuMTI4OTA3IDAgLTAuMjUzOTA3IDAuMDQ2ODc1IC0wLjM1NTQ2OSAwLjE0NDUzMiBsIC0wLjcwNzAzMSAwLjcwNzAzMSBjIC0wLjE5NTMxMyAwLjE5OTIxOSAtMC4xOTUzMTMgMC41MTE3MTkgMCAwLjcwNzAzMSBsIDEuNDE0MDYyIDEuNDE3OTY5IGMgMC4xOTkyMTkgMC4xOTUzMTIgMC41MTE3MTkgMC4xOTUzMTIgMC43MDcwMzEgMCBsIDAuNzEwOTM4IC0wLjcxMDkzOCBjIDAuMTk1MzEyIC0wLjE5NTMxMiAwLjE5NTMxMiAtMC41MDc4MTIgMCAtMC43MDcwMzEgbCAtMS40MTc5NjkgLTEuNDE0MDYyIGMgLTAuMDk3NjU2IC0wLjA5NzY1NyAtMC4yMjI2NTYgLTAuMTQ0NTMyIC0wLjM1MTU2MiAtMC4xNDQ1MzIgeiBtIC00Ljc0MjE4OCAxLjk2NDg0NCBjIC0wLjI3NzM0NCAwIC0wLjUgMC4yMjI2NTYgLTAuNSAwLjUgdiAyIGMgMCAwLjI3NzM0NCAwLjIyMjY1NiAwLjUgMC41IDAuNSBoIDEgYyAwLjI3NzM0NCAwIDAuNSAtMC4yMjI2NTYgMC41IC0wLjUgdiAtMiBjIDAgLTAuMjc3MzQ0IC0wLjIyMjY1NiAtMC41IC0wLjUgLTAuNSB6IG0gMCAwIiBmaWxsPSIjN2UxZGZiIi8+IDwvZz4KCjwvc3ZnPg==" alt="toggle theme"/>
+        </button>
+      </div>
+    </header>
+
+    <div class="divider"></div>
+
+    <div class="api-notice hidden" id="apiNotice">
+      <div class="api-key-row">
+        <input type="text" id="apiKeyInput" placeholder="Paste your OpenWeatherMap API key…"/>
+        <button onclick="saveApiKey()" id="saveKeyBtn">Activate</button>
+      </div>
+    </div>
+
+    <div class="search-bar">
+      <input type="text" id="cityInput" placeholder="Search any city — Tokyo, Paris, Cairo…" />
+      <button onclick="fetchWeather()" id="searchBtn">Search</button>
+    </div>
+
+    <div id="stateIdle" class="message-box">
+      <span class="msg-icon">🌍</span>
+      <p id="idleText">Enter a city name above to get real-time weather data.</p>
+    </div>
+
+    <div id="stateLoading" class="message-box hidden">
+      <div class="loading-dots"><span></span><span></span><span></span></div>
+      <p style="margin-top:20px;letter-spacing:2px;font-size:0.78rem;text-transform:uppercase;" id="loadingText">Fetching weather…</p>
+    </div>
+
+    <div id="stateError" class="message-box error hidden">
+      <span class="msg-icon">⚠️</span>
+      <p id="errorMsg">Something went wrong.</p>
+    </div>
+
+    <div id="stateResult" class="hidden">
+
+      <!-- Main weather card -->
+      <div class="weather-card">
+        <div class="city-row">
+          <div class="city-name" id="rCity">—</div>
+          <div class="country-badge" id="rCountry">—</div>
+        </div>
+        <div class="date-time" id="rDate">—</div>
+        <div class="temp-row">
+          <div class="temp-big" id="rTemp">—</div>
+          <div class="weather-icon-wrap" id="rIcon">—</div>
+        </div>
+        <div class="condition" id="rCondition">—</div>
+        <div class="feels-like" id="rFeels">—</div>
+        <div class="stats-grid">
+          <div class="stat-box">
+            <span class="stat-icon">💧</span>
+            <div class="stat-value" id="rHumidity">—</div>
+            <div class="stat-label" id="labelHumidity">Humidity</div>
+          </div>
+          <div class="stat-box">
+            <span class="stat-icon">🌬️</span>
+            <div class="stat-value" id="rWind">—</div>
+            <div class="stat-label" id="labelWind">Wind</div>
+          </div>
+          <div class="stat-box">
+            <span class="stat-icon">👁️</span>
+            <div class="stat-value" id="rVis">—</div>
+            <div class="stat-label" id="labelVis">Visibility</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sunrise / Sunset + AQI row -->
+      <div class="extra-row">
+
+        <!-- Sunrise & Sunset card -->
+        <div class="extra-card sun-card">
+          <div class="extra-card-title" id="labelSunrise">Sunrise &amp; Sunset</div>
+          <div class="sun-row">
+            <div class="sun-item">
+              <div class="sun-emoji">🌅</div>
+              <div class="sun-time" id="rSunrise">—</div>
+              <div class="sun-label" id="labelSunriseTime">Sunrise</div>
+            </div>
+            <div class="sun-arc-wrap">
+              <svg class="sun-arc" viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 55 Q60 0 110 55" stroke="var(--border)" stroke-width="2" fill="none" stroke-dasharray="4 4"/>
+                <path id="sunArcProgress" d="M10 55 Q60 0 110 55" stroke="var(--glow)" stroke-width="2.5" fill="none"
+                      stroke-dasharray="160" stroke-dashoffset="160"/>
+                <circle id="sunDot" cx="10" cy="55" r="5" fill="var(--glow)"/>
+              </svg>
+            </div>
+            <div class="sun-item">
+              <div class="sun-emoji">🌇</div>
+              <div class="sun-time" id="rSunset">—</div>
+              <div class="sun-label" id="labelSunsetTime">Sunset</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AQI card -->
+        <div class="extra-card aqi-card">
+          <div class="extra-card-title" id="labelAqi">Air Quality</div>
+          <div class="aqi-score-row">
+            <div class="aqi-number" id="rAqiNumber">—</div>
+            <div class="aqi-badge" id="rAqiBadge">—</div>
+          </div>
+          <div class="aqi-bar-wrap">
+            <div class="aqi-bar">
+              <div class="aqi-bar-fill" id="rAqiBar"></div>
+              <div class="aqi-bar-marker" id="rAqiMarker"></div>
+            </div>
+            <div class="aqi-bar-labels">
+              <span>Good</span><span>Fair</span><span>Moderate</span><span>Poor</span><span>Very Poor</span>
+            </div>
+          </div>
+          <div class="aqi-pollutants" id="rAqiPollutants"></div>
+        </div>
+
+      </div>
+
+      <!-- 5-day forecast -->
+      <div class="forecast-card">
+        <div class="forecast-title" id="forecastTitle">5 — Day Forecast</div>
+        <div class="forecast-row" id="forecastRow"></div>
+      </div>
+
+    </div>
+
+    <footer>Skycast &nbsp;·&nbsp; <span id="footerBuilt">Built with ❤️</span></footer>
+  </div>
+
+  <!-- Language menu portal -->
+  <div class="lang-menu-portal hidden" id="langMenu">
+    <button onclick="setLang('en','EN')">🇬🇧 English</button>
+    <button onclick="setLang('fr','FR')">🇫🇷 Français</button>
+    <button onclick="setLang('ar','AR')">🇩🇿 العربية</button>
+    <button onclick="setLang('es','ES')">🇪🇸 Español</button>
+    <button onclick="setLang('de','DE')">🇩🇪 Deutsch</button>
+    <button onclick="setLang('zh_cn','ZH')">🇨🇳 中文</button>
+    <button onclick="setLang('ja','JA')">🇯🇵 日本語</button>
+    <button onclick="setLang('ru','RU')">🇷🇺 Русский</button>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

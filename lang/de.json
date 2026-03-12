@@ -1,0 +1,17 @@
+{
+  "search": "Suchen",
+  "placeholder": "Stadt suchen — Tokio, Paris, Kairo…",
+  "idle": "Gib eine Stadt ein, um das aktuelle Wetter zu sehen.",
+  "humidity": "Feuchtigkeit",
+  "wind": "Wind",
+  "visibility": "Sichtweite",
+  "forecast": "5-Tage-Vorhersage",
+  "feels": "Gefühlt",
+  "loading": "Laden…",
+  "tagline": "Echtzeit-Wetterinformationen",
+  "footer": "Mit ❤️ gebaut",
+  "sunTitle": "Sonnenauf- & untergang",
+  "sunrise": "Aufgang",
+  "sunset": "Untergang",
+  "airQuality": "Luftqualität"
+}
